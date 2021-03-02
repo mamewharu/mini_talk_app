@@ -6,5 +6,8 @@ class MessagesController < ApplicationController
 
   def create
     @message = message.new(text: params[:massage] [:text] )
+    if @message.save
+      ActionCable.sever.broadcast 'message_channel', content: @message
+    end
   end
 end
