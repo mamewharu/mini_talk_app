@@ -1,6 +1,6 @@
 class MessagesController < ApplicationController
   def new
-    @messages = Message.all.order("created_at DESC")
+    @messages = Message.all
     @message = Message.new
   end
 
